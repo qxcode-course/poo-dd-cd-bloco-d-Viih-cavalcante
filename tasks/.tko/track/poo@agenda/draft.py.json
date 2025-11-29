@@ -2,8 +2,33 @@
     "patches": [
         {
             "label": "2025-11-28_11-20-15",
-            "content": "testando commit",
+            "content": "@@ -1,40 +1,15 @@\n-class contato:%0A    def _init_(nome :str)\n+testando commit\n",
             "lines": "1"
+        },
+        {
+            "label": "2025-11-28_12-36-06",
+            "content": "@@ -27,14 +27,8 @@\n it_(\n-self, \n nome\n@@ -36,64 +36,5 @@\n :str\n-, numbrer :int):%0A        self.nome = str%0A        self.number\n+)\n",
+            "lines": "2"
+        },
+        {
+            "label": "2025-11-28_15-08-36",
+            "content": "@@ -102,39 +102,4 @@\n mber\n- = int%0A%0A    def str(self):%0A        \n",
+            "lines": "4"
+        },
+        {
+            "label": "2025-11-28_15-09-01",
+            "content": "@@ -137,44 +137,4 @@\n     \n-return f%22%7Bself.nome%7D:%7Bself.number%7D%22%0A    \n",
+            "lines": "7"
+        },
+        {
+            "label": "2025-11-28_16-52-31",
+            "content": "@@ -33,113 +33,83 @@\n lf, \n-telefone: str, favorito: bool = False):%0A        self.telefone = telefone%0A        self.favorito = favorito\n+nome :str, numbrer :int):%0A        self.nome = str%0A        self.number = int\n %0A%0A  \n@@ -173,14 +173,8 @@\n r%7D%22%0A    \n-%0A%0A    \n",
+            "lines": "8"
+        },
+        {
+            "label": "2025-11-28_17-07-57",
+            "content": "class contato:\n    def _init_(self, telefone: str, favorito: bool = False):\n        self.telefone = telefone\n        self.favorito = favorito\n\n    def str(self):\n        return f\"{self.nome}:{self.number}\"\n    \n\n    ",
+            "lines": "10"
         }
     ]
 }
