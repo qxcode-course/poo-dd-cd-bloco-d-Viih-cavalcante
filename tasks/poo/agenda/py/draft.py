@@ -1,59 +1,64 @@
-class contato:
-    def _init_(self, telefone: str, favorito: bool = False):
-        self.telefone = telefone
-        self.favorito = favorito
-
-    def str(self):
-        estrela = "*" if self.favorito else "-"
-        return f"{estrela} {self.telefone}"
-
-class Pessoa:
-    def __init__(self, nome: str):
-        self.nome = nome
-        self.contatos = []
-
-    def adicionar_contato(self, telefone: str, favorito: bool = False):
-        for c in self.contatos:
-            if c.telefone == telefone:
-                print("fail: telefone ja existe para essa pessoa")
+class Telefone:
+    def __init__(self, id, numero):
+        self.id = id
+        self.numero = numero
+    @staticmethod
+    def valido(numero):
+        validos = "0123456789()."
+        if numero == "":
+            return False
+        for c in numero:
+            if c not in validos:
                 return False
-            
-        novo = contato(telefone, favorito)
-        self.contatos.append(novo)
-        return True
-    
-    def remover_contato(self, telefone: str):
-        for c in self.contatos:
-            if c.telefone == telefone:
-                self.contatos.remove(c)
-                return True
-            
-        print("fail: telefone nao encontrado")
-        return False
-    
-    def favoritar(self, telefone: str):
-        for c in self.contatos:
-            if c.telefone == telefone:
-                c.favorito = True
-                return True
-            
-        print("fail: telefone não encontrado")
-        return False
-    
-    def desfavoritar(self, telefone: str):
-        for c in self.contatos:
-            if c.telefone == telefone:
-                c.favorito = False
-                return True
-            
-        print("fail: telefone nao encontrado")
-        return False
+            return True
     def __str__(self):
-        texto = f"-n{self.nome}\n"
-        for c in self.contatos:
-            texto+= f" {c}\n"
-        return texto.strip()
-    while True:
-        comando = input()
-
+        return f"{self.id}:{self.numero}"
+class Contato:
+    def __innit__(self, nome):
+        self.nome = nome
+        self.favorito = False
+        self.telefone = []
+        def adicionar_telefone(self,id, numero):
+            if not Telefone.valido(numero):
+                print("fail: invalid numbere")
+                return
+            self.telefones.append(telefone(id, numero))
+        def remover_telefone(self, indice):
+            if indice < 0 or indice >= len(self.telefones):
+                print("fail: invalid index")
+                return
+            del self.telefones[indice]
+        def alternar_favorito(self):
+            self.favorito = not self.favorito
+while True:
+        comando = input("$ ").split()
+        if comando[0] == "end":
+            break
+        elif comando [0] == "addPessoa":
+            _, nome = comando
+            agenda.remover_pessoa(nome)
+        elif comando[0] == "addContato":
+            _, nome, telefone = comando
+            agenda.adicionar_contato(nome, telefone)
+        elif comando [0] == "addFav":
+            _, nome, telefone = comando
+            agenda.favoritar(nome,telefone)
+        elif comando [0] == "rmFav" :
+            _, nome, telefone = comando
+            agenda.desfavoritar(nome, telefone)
+        elif comando[0] == "rmContato":
+            _, nome, telefone = comando
+            agenda.remover_contato(nome, telefone)
+        elif comando [0] == "buscar":
+            _, padrão = comando
+            resultados = agenda.buscar(padrão)
+            for p in resultados:
+                print(p.nome)
+        elif comando[0] == "show":
+            agenda.mostrar()
+        elif comando[0] == "favoritos":
+            agenda.mostrar_favoritos()
+        else:
+            print("fail: comando invalido")        
+            
     
